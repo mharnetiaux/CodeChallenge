@@ -1,5 +1,5 @@
 ## View Demo
-- open `index.html` file in browser - located in `Demo/` directory.
+- open `index.html` file in browser - located in `dist/` directory.
 
 ## Setup
 - make sure you have Node.js installed

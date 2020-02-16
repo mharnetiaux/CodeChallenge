@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm -f -r ./Demo & webpack --mode production",
+    "build": "rm -f -r ./dist & webpack --mode production",
     "start": "webpack-dev-server --open"
   },
   "repository": {
