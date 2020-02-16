@@ -1,0 +1,45 @@
+{
+  "name": "codechallenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -f -r ./Demo & webpack --mode production",
+    "start": "webpack-dev-server --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mharnetiaux/CodeChallenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.6.0",
+    "@babel/node": "^7.8.4",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "babel-minify-webpack-plugin": "^0.3.1",
+    "compression": "^1.7.4",
+    "css-loader": "^3.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.8.6",
+    "react-super-responsive-table": "^5.1.1"
+  },
+  "bugs": {
+    "url": "https://github.com/mharnetiaux/CodeChallenge/issues"
+  },
+  "homepage": "https://github.com/mharnetiaux/CodeChallenge#readme"
+}
