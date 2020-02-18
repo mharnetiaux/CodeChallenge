@@ -10,13 +10,13 @@ export default function Entries (props) {
         fetch(props.endpoint, {
             method: 'GET',
         })
-            .then( res => res.json() )
-            .then( (json) => {
-                updateData(json.data.history);
-            })
-            .catch(function( err ) {
-                console.log( 'Fetch Error', err );
-            });
+        .then( res => res.json() )
+        .then( (json) => {
+            updateData(json.data.history);
+        })
+        .catch(function( err ) {
+            console.log( 'Fetch Error', err );
+        });
     }
 
     function collectEntries() {
@@ -60,7 +60,6 @@ export default function Entries (props) {
         getData();
     },[props.endpoint]);
 
-
     return (
         filterResults().length > 0 ?
             <Table className='bitCoin'>
@@ -74,17 +73,17 @@ export default function Entries (props) {
                 </Tr>
             </Thead>
             <Tbody>
-                {
-                    filterResults().map(((item,id) => (
-                        <Tr key={id}>
-                            <Td>{ item.date.slice(0,item.date.length-5) }</Td>
-                            <Td>{ item.price }</Td>
-                            <Td>{ item.direction }</Td>
-                            <Td>{ item.change }</Td>
-                            <Td>{ item.dayOfWeek }</Td>
-                        </Tr>
-                    )))
-                }
+            {
+                filterResults().map(((item,id) => (
+                    <Tr key={id}>
+                        <Td>{ item.date.slice(0,item.date.length-5) }</Td>
+                        <Td>{ item.price }</Td>
+                        <Td>{ item.direction }</Td>
+                        <Td>{ item.change }</Td>
+                        <Td>{ item.dayOfWeek }</Td>
+                    </Tr>
+                )))
+            }
             </Tbody>
         </Table> : <span>Loading ...</span>
     )
