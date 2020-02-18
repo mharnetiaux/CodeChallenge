@@ -5,22 +5,22 @@ import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 export default function Entries (props) {
     const [ data, updateData ] = useState([]);
 
-    function getData() {
+    function getData(){
         fetch(props.endpoint, {
             method: 'GET',
             mode: 'cors',
             cache:'default'
         })
-        .then( res => res.json() )
-        .then( (json) => {
+        .then(res => res.json())
+        .then((json) => {
             updateData(json.data.history);
         })
-        .catch(function( err ) {
+        .catch(function(err) {
             return `Fetch Error ${err}`;
         });
     }
 
-    function collectEntries() {
+    function collectEntries(){
         const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         let store = [];
         data.forEach((item) => {
