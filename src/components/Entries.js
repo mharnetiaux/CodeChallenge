@@ -62,28 +62,28 @@ export default function Entries (props) {
     return (
         filterResults().length > 0 ?
             <Table className='bitCoin'>
-            <Thead>
-                <Tr>
-                    <Th>Date</Th>
-                    <Th>Price</Th>
-                    <Th>Direction</Th>
-                    <Th>Change</Th>
-                    <Th>Day of Week</Th>
-                </Tr>
-            </Thead>
-            <Tbody>
-            {
-                filterResults().map(((item,id) => (
-                    <Tr key={id}>
-                        <Td>{ item.date.slice(0,item.date.length-5) }</Td>
-                        <Td>{ item.price }</Td>
-                        <Td>{ item.direction }</Td>
-                        <Td>{ item.change }</Td>
-                        <Td>{ item.dayOfWeek }</Td>
+                <Thead>
+                    <Tr>
+                        <Th>Date</Th>
+                        <Th>Price</Th>
+                        <Th>Direction</Th>
+                        <Th>Change</Th>
+                        <Th>Day of Week</Th>
                     </Tr>
-                )))
-            }
-            </Tbody>
-        </Table> : <span>Loading ...</span>
+                </Thead>
+                <Tbody>
+                {
+                    filterResults().map(((item,id) => (
+                        <Tr key={id}>
+                            <Td>{ item.date.slice(0,item.date.length-5) }</Td>
+                            <Td>{ item.price }</Td>
+                            <Td>{ item.direction }</Td>
+                            <Td>{ item.change }</Td>
+                            <Td>{ item.dayOfWeek }</Td>
+                        </Tr>
+                    )))
+                }
+                </Tbody>
+            </Table> : <span>Loading ...</span>
     )
 }
