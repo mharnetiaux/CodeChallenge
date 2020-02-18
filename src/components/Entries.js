@@ -8,13 +8,15 @@ export default function Entries (props) {
     function getData() {
         fetch(props.endpoint, {
             method: 'GET',
+            mode: 'cors',
+            cache:'default'
         })
         .then( res => res.json() )
         .then( (json) => {
             updateData(json.data.history);
         })
         .catch(function( err ) {
-            console.log( 'Fetch Error', err );
+            return `Fetch Error ${err}`;
         });
     }
 
@@ -29,7 +31,7 @@ export default function Entries (props) {
                     "date": date.toISOString(),
                     "dayOfWeek":  weekday[date.getDay()],
                     "change": "n/a",
-                    "price": JSON.parse( item['price']),
+                    "price": JSON.parse(item['price']),
                 });
             }
         });
