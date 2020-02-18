@@ -22,7 +22,7 @@ export default function Entries (props) {
 
     function collectEntries(){
         const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        let store = [];
+        const store = [];
         data.forEach((item) => {
             const date = new Date(item['timestamp']);
             if(date.toISOString().includes('00:00:00')) {
