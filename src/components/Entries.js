@@ -4,7 +4,6 @@ import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 
 export default function Entries (props) {
     const [ data, updateData ] = useState([]);
-    let entries = [];
 
     function getData() {
         fetch(props.endpoint, {
