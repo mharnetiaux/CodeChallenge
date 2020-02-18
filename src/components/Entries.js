@@ -35,7 +35,7 @@ export default function Entries (props) {
                 });
             }
         });
-        return store
+        return store;
     }
 
     function filterResults(){
