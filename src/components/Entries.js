@@ -1,6 +1,9 @@
 import '../styles/index.less';
 import { weekDays } from "../utlis/constants";
-import React, { useState, useEffect } from 'react';
+import React, {
+    useState,
+    useEffect
+} from 'react';
 
 import {
     Table,
@@ -12,12 +15,13 @@ import {
 } from 'react-super-responsive-table';
 
 export default function Entries (props) {
+
     const [
         data,
         updateData
     ] = useState([]);
 
-    function getData(){
+    function getData() {
         fetch(props.endpoint, {
             method: 'GET',
             mode: 'cors',
@@ -28,11 +32,11 @@ export default function Entries (props) {
             updateData(json.data.history);
         })
         .catch(function(err) {
-            return `Fetch Error ${err}`;
+            return `Fetch Error ${ err }`;
         });
     }
 
-    function collectEntries(){
+    function collectEntries() {
         const store = [];
 
         data.forEach((item) => {
@@ -52,10 +56,13 @@ export default function Entries (props) {
         return store;
     }
 
-    function filterResults(){
+    function filterResults() {
+
         const entries = collectEntries();
         let i = 1;
+
         while(i < entries.length) {
+
             entries[i].change = entries[i].price - entries[i-1].price;
 
             if(entries[i].price > entries[i-1].price) {
@@ -68,6 +75,7 @@ export default function Entries (props) {
 
             i++;
         }
+
         return entries;
     }
 
@@ -78,7 +86,9 @@ export default function Entries (props) {
     },[props.endpoint]);
 
     return (
+
         filterResults().length > 0 ?
+
         <Table className='bitCoin'>
             <Thead>
                 <Tr>
@@ -91,9 +101,9 @@ export default function Entries (props) {
             </Thead>
             <Tbody>
             {
-                filterResults().map(((item,id) => (
-                    <Tr key={id}>
-                        <Td>{ item.date.slice(0,item.date.length-5) }</Td>
+                filterResults().map(((item, id) => (
+                    <Tr key={ id }>
+                        <Td>{ item.date.slice(0, item.date.length-5) }</Td>
                         <Td>{ item.price }</Td>
                         <Td>{ item.direction }</Td>
                         <Td>{ item.change }</Td>
