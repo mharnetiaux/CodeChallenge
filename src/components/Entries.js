@@ -88,7 +88,7 @@ export default function Entries (props) {
     return (
 
         filterResults().length > 0 ?
-
+        // data ready
         <Table className='bitCoin'>
             <Thead>
                 <Tr>
@@ -112,6 +112,8 @@ export default function Entries (props) {
                 )))
             }
             </Tbody>
-        </Table> : <span>Loading ...</span>
+        </Table>
+        // No data yet
+        : <span>Loading ...</span>
     )
 }
