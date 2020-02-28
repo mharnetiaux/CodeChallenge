@@ -101,6 +101,7 @@ export default function Entries (props) {
                 </Tr>
             </Thead>
             <Tbody>
+
             {
                 filterResults().map(((item, id) => (
                     <Tr key={ id }>
@@ -112,6 +113,7 @@ export default function Entries (props) {
                     </Tr>
                 )))
             }
+
             </Tbody>
         </Table>
         // No data yet
