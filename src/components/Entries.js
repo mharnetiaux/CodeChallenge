@@ -89,6 +89,7 @@ export default function Entries (props) {
 
         filterResults().length > 0 ?
         // data ready
+        // line 107 can be improved
         <Table className='bitCoin'>
             <Thead>
                 <Tr>
