@@ -1,9 +1,21 @@
 import '../styles/index.less';
+import { weekDays } from "../utlis/constants";
 import React, { useState, useEffect } from 'react';
-import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
+
+import {
+    Table,
+    Thead,
+    Tbody,
+    Tr,
+    Th,
+    Td
+} from 'react-super-responsive-table';
 
 export default function Entries (props) {
-    const [ data, updateData ] = useState([]);
+    const [
+        data,
+        updateData
+    ] = useState([]);
 
     function getData(){
         fetch(props.endpoint, {
@@ -21,20 +33,22 @@ export default function Entries (props) {
     }
 
     function collectEntries(){
-        const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const store = [];
+
         data.forEach((item) => {
             const date = new Date(item['timestamp']);
+
             if(date.toISOString().includes('00:00:00')) {
                 store.push({
                     "direction": "n/a",
                     "date": date.toISOString(),
-                    "dayOfWeek":  weekday[date.getDay()],
+                    "dayOfWeek":  weekDays[date.getDay()],
                     "change": "n/a",
                     "price": JSON.parse(item['price']),
                 });
             }
         });
+
         return store;
     }
 
@@ -43,13 +57,15 @@ export default function Entries (props) {
         let i = 1;
         while(i < entries.length) {
             entries[i].change = entries[i].price - entries[i-1].price;
+
             if(entries[i].price > entries[i-1].price) {
                 entries[i].direction = "Up";
-            }else if(entries[i].price < entries[i-1].price) {
+            } else if(entries[i].price < entries[i-1].price) {
                 entries[i].direction = "Down";
-            }else {
+            } else {
                 entries[i].direction = "Same";
             }
+
             i++;
         }
         return entries;
