@@ -15,7 +15,6 @@ import {
 } from 'react-super-responsive-table';
 
 export default function Entries (props) {
-
     const [
         data,
         updateData
@@ -57,8 +56,10 @@ export default function Entries (props) {
     }
 
     function filterResults() {
-
         const entries = collectEntries();
+        const valueIncrease = "Up";
+        const valueDecrease  = "Down";
+        const valueDidNotChange = "Same";
         let i = 1;
 
         while(i < entries.length) {
@@ -66,11 +67,11 @@ export default function Entries (props) {
             entries[i].change = entries[i].price - entries[i-1].price;
 
             if(entries[i].price > entries[i-1].price) {
-                entries[i].direction = "Up";
+                entries[i].direction = valueIncrease;
             } else if(entries[i].price < entries[i-1].price) {
-                entries[i].direction = "Down";
+                entries[i].direction = valueDecrease;
             } else {
-                entries[i].direction = "Same";
+                entries[i].direction = valueDidNotChange;
             }
 
             i++;
@@ -86,7 +87,6 @@ export default function Entries (props) {
     },[props.endpoint]);
 
     return (
-
         filterResults().length > 0 ?
         // data ready
         // line 107 can be improved
@@ -101,7 +101,6 @@ export default function Entries (props) {
                 </Tr>
             </Thead>
             <Tbody>
-
             {
                 filterResults().map(((item, id) => (
                     <Tr key={ id }>
@@ -113,7 +112,6 @@ export default function Entries (props) {
                     </Tr>
                 )))
             }
-
             </Tbody>
         </Table>
         // No data yet
