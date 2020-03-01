@@ -63,13 +63,14 @@ export default function Entries (props) {
         let i = 1;
 
         while(i < entries.length) {
-
             entries[i].change = entries[i].price - entries[i-1].price;
 
             if(entries[i].price > entries[i-1].price) {
                 entries[i].direction = valueIncrease;
+
             } else if(entries[i].price < entries[i-1].price) {
                 entries[i].direction = valueDecrease;
+
             } else {
                 entries[i].direction = valueDidNotChange;
             }
